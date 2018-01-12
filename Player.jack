@@ -1,6 +1,7 @@
 class Player{
 	field int x, y;
 	field int memAddress;
+	field int movecheck;
 	constructor Player new (int xlocation, int ylocation) {
 		let x = xlocation;
 		let y = ylocation;
@@ -56,38 +57,62 @@ class Player{
 	}
 
 	method void moveUp() {
-      if (y > 0) {
-         do erase();
-         let y = y - 1;
-         do draw();
-      }
-      return;
+		let movecheck = Movecheck.movecheck(x, y, x, y-1);
+		// can't move
+		if(movecheck = 0){
+			return;
+		}
+		// push box
+		if(movecheck = 2){ do Box.moveUp(); }
+		// move player
+        do erase();
+        let y = y - 1;
+        do draw();
+    	return;
     }
 
     method void moveDown() {
-      if (y < 15) {
-         do erase();
-         let y = y + 1;
-         do draw();
-      }
-      return;
+    	let movecheck = Movecheck.movecheck(x, y, x, y+1);
+    	// can't move
+		if(movecheck = 0){
+			return;
+		}
+		// push box
+		if(movecheck = 2){ do Box.moveDown(); }
+		// move player
+        do erase();
+        let y = y + 1;
+        do draw();
+    	return;
     }
 
     method void moveLeft() {
-      if (x > 0) {
-         do erase();
-         let x = x - 1;
-         do draw();
-      }
-      return;
+    	let movecheck = Movecheck.movecheck(x, y, x-1, y);
+    	// can't move
+		if(movecheck = 0){
+			return;
+		}
+		// push box
+		if(movecheck = 2){ do Box.moveLeft(); }
+		// move player
+        do erase();
+        let x = x - 1;
+        do draw();
+    	return;
     }
 
     method void moveRight() {
-      if (x < 31) {
-         do erase();
-         let x = x + 1;
-         do draw();
-      }
-      return;
+    	let movecheck = Movecheck.movecheck(x, y, x+1, y);
+    	// can't move
+		if(movecheck = 0){
+			return;
+		}
+		// push box
+		if(movecheck = 2){ do Box.moveRight(); }
+		// move player
+        do erase();
+        let x = x + 1;
+        do draw();
+    	return;
     }
 }
