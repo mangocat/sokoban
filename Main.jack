@@ -1,6 +1,14 @@
 class Main {
     function void main() {
+    	var Box box1, box2;
+    	var Wall wall1, wall2;
+    	var Destination dest1;
     	var Game game;
+    	let box1 = Box.new(2, 2);
+    	let box2 = Box.new(2, 3);
+    	let wall1 = Wall.new(2, 4);
+    	let wall2 = Wall.new(3, 4);
+    	let dest1 = Destination.new(10, 10);
     	let game = Game.new(0, 0);
     	do game.run();
     	do game.dispose();

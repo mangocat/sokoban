@@ -1,6 +1,5 @@
 class Game {
    field Player player; // the player of this game
-
    /** Constructs a new Sokoban Game. */
    constructor Game new(int xlocation, int ylocation) {
       let player = Player.new(xlocation, ylocation);

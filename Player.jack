@@ -1,6 +1,6 @@
 class Player{
 	field int x, y;
-	field int memAddress;
+	field int memAddress, memAddressBox;
 	field int movecheck;
 	constructor Player new (int xlocation, int ylocation) {
 		let x = xlocation;
@@ -57,13 +57,13 @@ class Player{
 	}
 
 	method void moveUp() {
-		let movecheck = Movecheck.movecheck(x, y, x, y-1);
+		let movecheck = Player.movecheck(x, y, x, y-1);
 		// can't move
 		if(movecheck = 0){
 			return;
 		}
 		// push box
-		if(movecheck = 2){ do Box.moveUp(); }
+		if(movecheck > 1){ do drawBox(x, y-2); }
 		// move player
         do erase();
         let y = y - 1;
@@ -72,13 +72,13 @@ class Player{
     }
 
     method void moveDown() {
-    	let movecheck = Movecheck.movecheck(x, y, x, y+1);
+    	let movecheck = Player.movecheck(x, y, x, y+1);
     	// can't move
 		if(movecheck = 0){
 			return;
 		}
 		// push box
-		if(movecheck = 2){ do Box.moveDown(); }
+		if(movecheck > 1){ do drawBox(x, y+2); }
 		// move player
         do erase();
         let y = y + 1;
@@ -87,13 +87,13 @@ class Player{
     }
 
     method void moveLeft() {
-    	let movecheck = Movecheck.movecheck(x, y, x-1, y);
+    	let movecheck = Player.movecheck(x, y, x-1, y);
     	// can't move
 		if(movecheck = 0){
 			return;
 		}
 		// push box
-		if(movecheck = 2){ do Box.moveLeft(); }
+		if(movecheck > 1){ do drawBox(x-2, y); }
 		// move player
         do erase();
         let x = x - 1;
@@ -102,17 +102,66 @@ class Player{
     }
 
     method void moveRight() {
-    	let movecheck = Movecheck.movecheck(x, y, x+1, y);
+    	let movecheck = Player.movecheck(x, y, x+1, y);
     	// can't move
 		if(movecheck = 0){
 			return;
 		}
 		// push box
-		if(movecheck = 2){ do Box.moveRight(); }
+		if(movecheck > 1){ do drawBox(x+2, y); }
 		// move player
         do erase();
         let x = x + 1;
         do draw();
     	return;
     }
+
+    method void drawBox(int a, int b) {
+		let memAddressBox = 16384+(b*512)+a;
+		do Memory.poke(memAddressBox+0, -1);
+		do Memory.poke(memAddressBox+32, -1);
+		do Memory.poke(memAddressBox+64, -8185);
+		do Memory.poke(memAddressBox+96, -12277);
+		do Memory.poke(memAddressBox+128, -14317);
+		do Memory.poke(memAddressBox+160, -15325);
+		do Memory.poke(memAddressBox+192, -15805);
+		do Memory.poke(memAddressBox+224, -15997);
+		do Memory.poke(memAddressBox+256, -15997);
+		do Memory.poke(memAddressBox+288, -15805);
+		do Memory.poke(memAddressBox+320, -15325);
+		do Memory.poke(memAddressBox+352, -14317);
+		do Memory.poke(memAddressBox+384, -12277);
+		do Memory.poke(memAddressBox+416, -8185);
+		do Memory.poke(memAddressBox+448, -1);
+		do Memory.poke(memAddressBox+480, -1);
+		return;
+	}
+
+	function int movecheck(int x1, int y1, int x2, int y2){
+		var int idx; // next 2 space's x location
+		var int idy; // next 2 space's y location
+		var int next, next2;
+		let idx=(x2*2)-x1;
+		let idy=(y2*2)-y1;
+		// address of next space and next 2 space
+		let next = 16384 + (y2*512) + x2;
+		let next2 = 16384 + (idy*512) + idx;
+		// there is nothing in the next space
+		// can't move
+		if(Memory.peek(next+64)=-1){
+			return 0;
+		}
+		if(Memory.peek(next)=0){
+			return 1;
+		}
+		// there is nothing in the next two space
+		if(Memory.peek(next+64) = -8185){
+			if(Memory.peek(next2) = 0){return 2;}
+			if(Memory.peek(next2) = 384){
+			//	do score();
+				return 3;
+			}
+		}
+		return 0;
+	}
 }
