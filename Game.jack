@@ -1,0 +1,39 @@
+class Game {
+   field Player player; // the player of this game
+
+   /** Constructs a new Sokoban Game. */
+   constructor Game new(int xlocation, int ylocation) {
+      let player = Player.new(xlocation, ylocation);
+      return this;
+   }
+
+   /** Disposes this game. */
+   method void dispose() {
+      do player.dispose();
+      do Memory.deAlloc(this);
+      return;
+   }
+
+   /** Runs the game: handles the user's inputs and moves the square accordingly */
+   method void run() {
+      var char key;  // the key currently pressed by the user
+      var boolean exit;
+      let exit = false;
+      
+      while (~exit) {
+         // waits for a key to be pressed
+         while (key = 0) {
+            let key = Keyboard.keyPressed();
+            if (key = 81)  { let exit = true; }    // q key
+            if (key = 131) { do player.moveUp();    }   // up arrow
+            if (key = 133) { do player.moveDown();  }   // down arrow
+            if (key = 130) { do player.moveLeft();  }   // left arrow
+            if (key = 132) { do player.moveRight(); }   // right arrow
+         }
+         while(~(key = 0)){
+            let key = Keyboard.keyPressed();
+         }
+     }
+     return;
+   }
+}
