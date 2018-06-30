@@ -1,0 +1,67 @@
+class Finish{
+  function void draw(){
+    do Draw.drawBox(1, 1+4);
+    do Draw.drawBox(1, 2+4);
+    do Draw.drawBox(2, 2+4);
+    do Draw.drawBox(3, 2+4);
+    do Draw.drawBox(3, 1+4);
+    do Draw.drawBox(2, 3+4);
+    do Draw.drawBox(2, 4+4);
+
+    do Draw.drawDest(5, 1+4);
+    do Draw.drawDest(5, 2+4);
+    do Draw.drawDest(5, 3+4);
+    do Draw.drawDest(5, 4+4);
+    do Draw.drawDest(6, 4+4);
+    do Draw.drawDest(7, 4+4);
+    do Draw.drawDest(7, 3+4);
+    do Draw.drawDest(7, 2+4);
+    do Draw.drawDest(7, 1+4);
+    do Draw.drawDest(6, 1+4);
+
+    do Draw.drawWall(9, 1+4);
+    do Draw.drawWall(9, 2+4);
+    do Draw.drawWall(9, 3+4);
+    do Draw.drawWall(9, 4+4);
+    do Draw.drawWall(10, 4+4);
+    do Draw.drawWall(11, 4+4);
+    do Draw.drawWall(11, 3+4);
+    do Draw.drawWall(11, 2+4);
+    do Draw.drawWall(11, 1+4);
+
+    do Draw.drawWall(17, 1+4);
+    do Draw.drawWall(17, 2+4);
+    do Draw.drawWall(17, 3+4);
+    do Draw.drawWall(17, 4+4);
+    do Draw.drawWall(18, 3+4);
+    do Draw.drawWall(19, 2+4);
+    do Draw.drawWall(20, 3+4);
+    do Draw.drawWall(21, 4+4);
+    do Draw.drawWall(21, 3+4);
+    do Draw.drawWall(21, 2+4);
+    do Draw.drawWall(21, 1+4);
+
+    do Draw.drawDest(23, 1+4);
+    do Draw.drawDest(24, 1+4);
+    do Draw.drawDest(25, 1+4);
+    do Draw.drawDest(24, 2+4);
+    do Draw.drawDest(24, 3+4);
+    do Draw.drawDest(24, 4+4);
+    do Draw.drawDest(23, 4+4);
+    do Draw.drawDest(25, 4+4);
+
+    do Draw.drawBox(27, 1+4);
+    do Draw.drawBox(27, 2+4);
+    do Draw.drawBox(27, 3+4);
+    do Draw.drawBox(27, 4+4);
+    do Draw.drawBox(28, 2+4);
+    do Draw.drawBox(29, 3+4);
+    do Draw.drawBox(30, 4+4);
+    do Draw.drawBox(30, 3+4);
+    do Draw.drawBox(30, 2+4);
+    do Draw.drawBox(30, 1+4);
+
+    do Output.printString("B06902014 B06902018 B06902040 B06902122 2018/1/13");
+    return;
+  }
+}

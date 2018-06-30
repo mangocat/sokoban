@@ -1,0 +1,98 @@
+class Map {
+	function void map1(){
+		var Array array_dest;
+		var int num_dest;
+		let num_dest = 4;
+		let array_dest = Array.new(4);
+		do Draw.drawMap1();
+    	let array_dest[0] = Destination.new(1, 4);
+    	let array_dest[1] = Destination.new(3, 1);
+    	let array_dest[2] = Destination.new(4, 6);
+    	let array_dest[3] = Destination.new(6, 3);
+		return;
+	}
+	function void map2(){
+		var Array array_dest;
+		var int num_dest;
+		let num_dest = 2;
+		let array_dest = Array.new(2);
+		do Draw.drawMap2();
+		let array_dest[0] = Destination.new(2,2);
+		let array_dest[1] = Destination.new(4,2);
+		return;
+	}
+	function void map3(){		
+		var Array array_dest;
+		var int num_dest;
+		let num_dest = 2;
+		let array_dest = Array.new(2);
+		do Draw.drawMap3();
+		let array_dest[0] = Destination.new(1,1);
+		let array_dest[1] = Destination.new(4,5);
+		return;
+	}
+	function void map4(){		
+		var Array array_dest;
+		var int num_dest;
+		let num_dest = 8;
+		let array_dest = Array.new(8);
+		do Draw.drawMap4();
+		let array_dest[0] = Destination.new(5,2);
+		let array_dest[1] = Destination.new(5,3);
+		let array_dest[2] = Destination.new(5,4);
+		let array_dest[3] = Destination.new(5,5);
+		let array_dest[4] = Destination.new(6,5);
+		let array_dest[5] = Destination.new(6,6);
+		let array_dest[6] = Destination.new(6,7);
+		let array_dest[7] = Destination.new(6,8);
+		return;
+	}
+	function void map5(){		
+		var Array array_dest;
+		var int num_dest;
+		let num_dest = 40;
+		let array_dest = Array.new(40);
+		do Draw.drawMap5();
+    	let array_dest[0] = Destination.new(2, 2);
+    	let array_dest[1] = Destination.new(2, 4);
+    	let array_dest[2] = Destination.new(2, 6);
+    	let array_dest[3] = Destination.new(2, 8);
+    	let array_dest[4] = Destination.new(2, 10);
+    	let array_dest[5] = Destination.new(3, 3);
+    	let array_dest[6] = Destination.new(3, 5);
+    	let array_dest[7] = Destination.new(3, 7);
+    	let array_dest[8] = Destination.new(3, 9);
+    	let array_dest[9] = Destination.new(4, 2);
+    	let array_dest[10] = Destination.new(4, 4);
+    	let array_dest[11] = Destination.new(4, 6);
+    	let array_dest[12] = Destination.new(4, 8);
+    	let array_dest[13] = Destination.new(4, 10);
+    	let array_dest[14] = Destination.new(5, 3);
+    	let array_dest[15] = Destination.new(5, 5);
+    	let array_dest[16] = Destination.new(5, 7);
+    	let array_dest[17] = Destination.new(5, 9);
+    	let array_dest[18] = Destination.new(6, 4);
+    	let array_dest[19] = Destination.new(6, 2);
+    	let array_dest[20] = Destination.new(6, 8);
+    	let array_dest[21] = Destination.new(6, 10);
+    	let array_dest[22] = Destination.new(7, 3);
+    	let array_dest[23] = Destination.new(7, 5);
+    	let array_dest[24] = Destination.new(7, 7);
+    	let array_dest[25] = Destination.new(7, 9);
+    	let array_dest[26] = Destination.new(8, 2);
+    	let array_dest[27] = Destination.new(8, 4);
+    	let array_dest[28] = Destination.new(8, 6);
+    	let array_dest[29] = Destination.new(8, 8);
+    	let array_dest[30] = Destination.new(8, 10);
+    	let array_dest[31] = Destination.new(9, 3);
+    	let array_dest[32] = Destination.new(9, 5);
+    	let array_dest[33] = Destination.new(9, 7);
+    	let array_dest[34] = Destination.new(9, 9);
+    	let array_dest[35] = Destination.new(10, 2);
+    	let array_dest[36] = Destination.new(10, 4);
+    	let array_dest[37] = Destination.new(10, 6);
+    	let array_dest[38] = Destination.new(10, 8);
+    	let array_dest[39] = Destination.new(10, 10);
+		return;
+	}
+}

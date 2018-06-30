@@ -1,0 +1,28 @@
+class Main {
+    function void main() {
+		var Game game1, game2, game3, game4, game5;
+    	let game1 = Game.new(1, 4, 4); // (level, player_x, player_y)
+		do Map.map1();
+    	do game1.run();
+    	do game1.dispose();
+    	let game2 = Game.new(2, 5, 3);
+		do Map.map2();
+    	do game2.run();
+    	do game2.dispose();
+    	let game3 = Game.new(3, 1, 2);
+		do Map.map3();
+    	do game3.run();
+    	do game3.dispose();
+    let game4 = Game.new(4, 5, 3);
+      do Map.map4();
+      do game4.run();
+    do game4.dispose();
+      let game5 = Game.new(5, 3, 5);
+      do Map.map5();
+      do game5.run();
+      do game5.dispose();
+    do Finish.draw();
+      
+    	return;
+    }
+}

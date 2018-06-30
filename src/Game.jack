@@ -1,0 +1,274 @@
+class Game {
+   field Player player; // the player of this game
+   field int level;     // the level of this game
+   /** Constructs a new Sokoban Game. */
+   constructor Game new(int whichlevel, int xlocation, int ylocation) {
+      let level = whichlevel;
+      let player = Player.new(level, xlocation, ylocation);
+      return this;
+   }  
+
+   /** Disposes this game. */
+   method void dispose() {
+      do player.dispose();
+      do clean();
+      do Memory.deAlloc(this);
+      return;
+   }
+
+   /** Clean the Screen */
+   method void clean(){     
+      do Screen.setColor(false);
+      do Screen.drawRectangle(0, 0, 511, 255);
+      return;
+   }
+
+   /** Reset the Map */
+   method void reset(){
+      do clean();
+      if(level = 1){
+         do Map.map1();
+         let player = Player.new(level, 4, 4);
+         return;
+      }
+      if(level = 2){
+         do Map.map2();
+         let player = Player.new(level, 5, 3);
+         return;
+      }
+      if(level = 3){
+         do Map.map3();
+         let player = Player.new(level, 1, 2);
+         return;
+      }
+      if(level = 4){
+         do Map.map4();
+         let player = Player.new(level, 3, 5);
+         return;
+      }
+      if(level = 5){
+         do Map.map5();
+         let player = Player.new(level, 6, 6);
+         return;
+      }
+      return;
+   }
+   /** Check if a dest is covered by a box */
+   method int check_cover(int x, int y){
+      if((Memory.peek(16384 + (y*512) + x + 64)) = -8185){
+        return 1;
+      }
+      return 0;
+   }
+   /** Judge the game */
+   method int judge(){
+      if(level = 1){
+          if(check_cover(1, 4) = 0){
+              return 0;
+          }
+          if(check_cover(3, 1) = 0){
+              return 0;
+          }
+          if(check_cover(4, 6) = 0){
+              return 0;
+          }
+          if(check_cover(6, 3) = 0){
+              return 0;
+          }
+    	}
+    	if(level = 2){
+          if(check_cover(2, 2) = 0){
+              return 0;
+          }
+          if(check_cover(4, 2) = 0){
+              return 0;
+          }
+    	}
+    	if(level = 3){
+          if(check_cover(1, 1) = 0){
+              return 0;
+          }
+          if(check_cover(4, 5) = 0){
+              return 0;
+          }
+    	}
+      if(level = 4){
+          if(check_cover(5, 2) = 0){
+              return 0;
+          }
+          if(check_cover(5, 3) = 0){
+              return 0;
+          }
+          if(check_cover(5, 4) = 0){
+              return 0;
+          }
+          if(check_cover(5, 5) = 0){
+              return 0;
+          }
+          if(check_cover(6, 5) = 0){
+              return 0;
+          }
+          if(check_cover(6, 6) = 0){
+              return 0;
+          }
+          if(check_cover(6, 7) = 0){
+              return 0;
+          }
+          if(check_cover(6, 8) = 0){
+              return 0;
+          }
+      }
+      if(level = 5){
+          if(check_cover(2, 2) = 0){
+              return 0;
+          }
+          if(check_cover(2, 4) = 0){
+              return 0;
+          }
+          if(check_cover(2, 6) = 0){
+              return 0;
+          }
+          if(check_cover(2, 8) = 0){
+              return 0;
+          }
+          if(check_cover(2, 10) = 0){
+              return 0;
+          }
+          if(check_cover(4, 2) = 0){
+              return 0;
+          }
+          if(check_cover(4, 4) = 0){
+              return 0;
+          }
+          if(check_cover(4, 6) = 0){
+              return 0;
+          }
+          if(check_cover(4, 8) = 0){
+              return 0;
+          }
+          if(check_cover(4, 10) = 0){
+              return 0;
+          }
+          if(check_cover(6, 2) = 0){
+              return 0;
+          }
+          if(check_cover(6, 4) = 0){
+              return 0;
+          }
+          if(check_cover(6, 8) = 0){
+              return 0;
+          }
+          if(check_cover(6, 10) = 0){
+              return 0;
+          }
+          if(check_cover(8, 2) = 0){
+              return 0;
+          }
+          if(check_cover(8, 4) = 0){
+              return 0;
+          }
+          if(check_cover(8, 6) = 0){
+              return 0;
+          }
+          if(check_cover(8, 8) = 0){
+              return 0;
+          }
+          if(check_cover(8, 10) = 0){
+              return 0;
+          }
+          if(check_cover(10, 2) = 0){
+              return 0;
+          }
+          if(check_cover(10, 4) = 0){
+              return 0;
+          }
+          if(check_cover(10, 6) = 0){
+              return 0;
+          }
+          if(check_cover(10, 8) = 0){
+              return 0;
+          }
+          if(check_cover(10, 10) = 0){
+              return 0;
+          }
+          if(check_cover(3, 3) = 0){
+              return 0;
+          }
+          if(check_cover(3, 5) = 0){
+              return 0;
+          }
+          if(check_cover(3, 7) = 0){
+              return 0;
+          }
+          if(check_cover(3, 9) = 0){
+              return 0;
+          }
+          if(check_cover(5, 3) = 0){
+              return 0;
+          }
+          if(check_cover(5, 5) = 0){
+              return 0;
+          }
+          if(check_cover(5, 7) = 0){
+              return 0;
+          }
+          if(check_cover(5, 9) = 0){
+              return 0;
+          }
+          if(check_cover(7, 3) = 0){
+              return 0;
+          }
+          if(check_cover(7, 5) = 0){
+              return 0;
+          }
+          if(check_cover(7, 7) = 0){
+              return 0;
+          }
+          if(check_cover(7, 9) = 0){
+              return 0;
+          }
+          if(check_cover(9, 3) = 0){
+              return 0;
+          }
+          if(check_cover(9, 5) = 0){
+              return 0;
+          }
+          if(check_cover(9, 7) = 0){
+              return 0;
+          }
+          if(check_cover(9, 9) = 0){
+              return 0;
+          }
+      }
+		  return 1;
+   }
+
+   /** Runs the game: handles the user's inputs and moves the square accordingly */
+   method void run() {
+      var char key;  // the key currently pressed by the user
+      var boolean exit;
+      let exit = false;
+      
+      while (~exit) {
+         // waits for a key to be pressed
+         while (key = 0) {
+            let key = Keyboard.keyPressed();
+            if (key = 81)  { let exit = true; }    // q key
+            if (key = 82)  { do reset(); }    //r key
+            if (key = 74){
+                if(judge() = 1){
+                   let exit = true;
+                } 
+            }    //j key
+            if (key = 131) { do player.moveUp();    }   // up arrow
+            if (key = 133) { do player.moveDown();  }   // down arrow
+            if (key = 130) { do player.moveLeft();  }   // left arrow
+            if (key = 132) { do player.moveRight(); }   // right arrow
+         }
+         while(~(key = 0)){
+            let key = Keyboard.keyPressed();
+         }
+     }
+     return;
+   }
+}
